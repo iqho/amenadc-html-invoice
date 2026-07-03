@@ -697,6 +697,10 @@
 
   // ---------- Items ----------
   function removeItem(i){
+    const item = state.items[i];
+    if(!item) return;
+    const ok = confirm(`"${item.name}" (${item.price}) মুছে ফেলতে চান?`);
+    if(!ok) return;
     state.items.splice(i,1);
     render();
     saveState();
